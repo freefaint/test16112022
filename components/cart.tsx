@@ -22,11 +22,11 @@ export const Cart = () => {
 
   const total = useMemo(() => {
     return cart.reduce((coll, item) => {
-      const product = all.find(j => j.id === item.product)!;
+      const product = all?.find(j => j.id === item.product);
 
-      return coll + (product.price * item.count);
+      return coll + ((product?.price ?? 0) * currency * item.count);
     }, 0);
-  }, [all, cart]);
+  }, [all, cart, currency]);
 
   const totalStr = useMemo(() => {
     return getPrice(total) + ' руб';
@@ -37,11 +37,11 @@ export const Cart = () => {
       <h1> Корзина</h1>
 
       {cart.map(i => {
-        const item = all.find(j => j.id === i.product)!;
+        const item = all.find(j => j.id === i.product);
 
-        return (
+        return item ? (
           <Item key={i.product} item={item} count={i.count} />
-        );
+        ) : null;
       })}
 
       <h3>
