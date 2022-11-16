@@ -1,0 +1,21 @@
+.cart, .products {
+  margin: 2rem;
+}
+
+.cart {
+  border-left: '1px solid #ccc';
+}
+
+.product {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.red {
+  color: #f65;
+}
+
+.green {
+  color: #6a9;
+}
